@@ -3,29 +3,32 @@
 // And @bevchou's websocket-controller code
 // https://gist.github.com/bevchou/1aedf7938a7c4e9e1da9b3281ab188dd
 
-#include <Encoder.h>
+#include <EncoderStepCounter.h>
 #include <WiFiNINA.h> // Use this for Arduino Nano 33 IoT boards
 #include "arduino_secrets.h"
 
 // Initialize the WiFi client library
 WiFiClient client;
-const char server[] = "147.182.175.177";
+const char server[] = "10.23.11.143";
 
-// Up and down movement
-// Yellow knob
-Encoder udEnc(2, 3);
-long udPrev = -999;
-long udNew;
+// encoder pins:
+// UP/DOWN
+const int pin1 = 2;
+const int pin2 = 3;
+// LEFT/RIGHT
+const int pin3 = 8;
+const int pin4 = 9;
+// Create encoder instance:
+// UP/DOWN
+EncoderStepCounter encoderUD(pin1, pin2);
+// LEFT/RIGHT
+EncoderStepCounter encoderLR(pin3, pin4);
 
-// Left and right movement
-// Blue knob
-Encoder lrEnc(8, 9);
-long lrPrev = -999;
-long lrNew;
+// encoder previous position:
+int oldPosition1 = 0;
+int oldPosition2 = 0;
 
-// Button to login
-// For now, I'm going to use the button built into the blue encoder
-// Because I can't fit another button onto the small bread board
+// Button
 int buttonPin = 21;
 int buttonStatePrev = HIGH;
 int buttonState;
@@ -38,10 +41,11 @@ const int sendInterval = 50;  // minimum time between messages to the server
 long lastTimeSent = 0;  // timestamp of the last server message
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
+
   // If serial monitor is not open, wait three seconds
   if (!Serial) delay(3000);
-  
+
   Serial.println("Networked Game Controller for Ball Drop Game");
 
   // Attempt to connect to the WiFi network:
@@ -57,13 +61,18 @@ void setup() {
 
   // You're connected now, so print out the status
   printWiFiStatus();
+  
+  // Initialize encoder
+  encoderUD.begin();
+  encoderLR.begin();
 
-  // Initialize digital pin for button
+  // Initialize button
   pinMode(buttonPin, INPUT_PULLUP);
 }
 
 void loop() {
-  // Check if the button is pressed
+
+  // Check if button is pressed
   int reading = digitalRead(buttonPin);
   if (reading != buttonStatePrev) {
     lastDebounceTime = millis();
@@ -76,7 +85,7 @@ void loop() {
 
       if (buttonState == LOW) {
         Serial.println("Button pressed");
-        
+
         // If the client's not connected, let's connect
         if (!client.connected()) {
           Serial.println("Connecting...");
@@ -91,34 +100,36 @@ void loop() {
   }
   buttonStatePrev = reading;
   
-  // First, check up/down encoder
-  udNew = udEnc.read();
-  // If the position has changed
-  if (udNew != udPrev) {
-    // Check which direction we moved
-    if (udNew > udPrev && udNew % 4 == 0) {
-      Serial.println("down");
-      client.print("d");
-    } else if (udNew < udPrev && udNew % 4 == 0){
-      Serial.println("up");
-      client.print("u");
-    }
-    udPrev = udNew;
+  // if you're not using interrupts, you need this in the loop:
+  encoderUD.tick();
+  // read encoder position:
+  int position1 = encoderUD.getPosition();
+
+  // if there's been a change, print it:
+  if (position1 > oldPosition1) {
+    Serial.println("up");
+    client.print("u");
+    oldPosition1 = position1;
+  } else if (position1 < oldPosition1) {
+    Serial.println("down");
+    client.print("d");
+    oldPosition1 = position1;
   }
 
-  // Next, check left/right encoder
-  lrNew = lrEnc.read();
-  // If the position has changed
-  if (lrNew != lrPrev) {
-    // Check which direction we moved
-    if (lrNew > lrPrev && lrNew % 4 == 0) {
-      Serial.println("right");
-      client.print("r");
-    } else if (lrNew < lrPrev && lrNew % 4 == 0){
-      Serial.println("left");
-      client.print("l");
-    }
-    lrPrev = lrNew;
+  // if you're not using interrupts, you need this in the loop:
+  encoderLR.tick();
+  // read encoder position:
+  int position2 = encoderLR.getPosition();
+
+  // if there's been a change, print it:
+  if (position2 > oldPosition2) {
+    Serial.println("right");
+    client.print("r");
+    oldPosition2 = position2;
+  } else if (position2 < oldPosition2) {
+    Serial.println("left");
+    client.print("l");
+    oldPosition2 = position2;
   }
 
   // Turn on the built-in LED based on the connection state
