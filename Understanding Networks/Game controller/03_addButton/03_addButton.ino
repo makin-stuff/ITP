@@ -54,9 +54,9 @@ void loop() {
   if (udNew != udPrev) {
     // Check which direction we moved
     if (udNew > udPrev && udNew % 4 == 0) {
-      Serial.println("up");
-    } else if (udNew < udPrev && udNew % 4 == 0){
       Serial.println("down");
+    } else if (udNew < udPrev && udNew % 4 == 0){
+      Serial.println("up");
     }
     udPrev = udNew;
   }
