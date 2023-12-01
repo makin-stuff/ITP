@@ -1859,9 +1859,6 @@ Part Number: HA-522</description>
 <part name="GND49" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND50" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND51" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="J2" library="SparkFun-Connectors" deviceset="CONN_04" device="PTH"/>
-<part name="SUPPLY7" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
-<part name="GND52" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-LEDGER" device=""/>
 <part name="LED51" library="brain" deviceset="3.5X3.5_RGB_LED" device="3.5X3.5"/>
 <part name="LED52" library="brain" deviceset="3.5X3.5_RGB_LED" device="3.5X3.5"/>
@@ -2586,11 +2583,6 @@ Part Number: HA-522</description>
 <wire x1="17.78" y1="256.54" x2="22.86" y2="256.54" width="0.1524" layer="91"/>
 <label x="22.86" y="256.54" size="1.27" layer="95" xref="yes"/>
 </segment>
-<segment>
-<pinref part="LED40" gate="G$1" pin="DO"/>
-<wire x1="378.46" y1="73.66" x2="381" y2="73.66" width="0.1524" layer="91"/>
-<label x="381" y="73.66" size="1.27" layer="95" xref="yes"/>
-</segment>
 </net>
 <net name="N$10" class="0">
 <segment>
@@ -2821,6 +2813,13 @@ Part Number: HA-522</description>
 <wire x1="55.88" y1="73.66" x2="58.42" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="DO_1" class="0">
+<segment>
+<pinref part="LED40" gate="G$1" pin="DO"/>
+<wire x1="378.46" y1="73.66" x2="381" y2="73.66" width="0.1524" layer="91"/>
+<label x="381" y="73.66" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -2871,16 +2870,6 @@ Part Number: HA-522</description>
 </instance>
 <instance part="GND51" gate="1" x="365.76" y="236.22" smashed="yes">
 <attribute name="VALUE" x="365.76" y="235.966" size="1.778" layer="96" font="vector" align="top-center"/>
-</instance>
-<instance part="J2" gate="J1" x="12.7" y="259.08" smashed="yes">
-<attribute name="VALUE" x="7.62" y="251.714" size="1.778" layer="96" font="vector"/>
-<attribute name="NAME" x="7.62" y="267.208" size="1.778" layer="95" font="vector"/>
-</instance>
-<instance part="SUPPLY7" gate="G$1" x="20.32" y="266.7" smashed="yes">
-<attribute name="VALUE" x="20.32" y="269.494" size="1.778" layer="96" font="vector" align="bottom-center"/>
-</instance>
-<instance part="GND52" gate="1" x="20.32" y="251.46" smashed="yes">
-<attribute name="VALUE" x="20.32" y="251.206" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
 <instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes"/>
 <instance part="FRAME1" gate="G$2" x="330.2" y="0" smashed="yes">
@@ -3103,12 +3092,6 @@ Part Number: HA-522</description>
 <wire x1="365.76" y1="238.76" x2="365.76" y2="241.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J2" gate="J1" pin="2"/>
-<pinref part="GND52" gate="1" pin="GND"/>
-<wire x1="17.78" y1="259.08" x2="20.32" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="259.08" x2="20.32" y2="254" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="LED51" gate="G$1" pin="GND"/>
 <pinref part="GND53" gate="1" pin="GND"/>
 <wire x1="71.12" y1="182.88" x2="71.12" y2="185.42" width="0.1524" layer="91"/>
@@ -3303,12 +3286,6 @@ Part Number: HA-522</description>
 <junction x="337.82" y="269.24"/>
 </segment>
 <segment>
-<pinref part="J2" gate="J1" pin="4"/>
-<wire x1="17.78" y1="264.16" x2="20.32" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="264.16" x2="20.32" y2="266.7" width="0.1524" layer="91"/>
-<pinref part="SUPPLY7" gate="G$1" pin="5V"/>
-</segment>
-<segment>
 <pinref part="LED55" gate="G$1" pin="VDD"/>
 <wire x1="208.28" y1="210.82" x2="208.28" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="LED54" gate="G$1" pin="VDD"/>
@@ -3463,24 +3440,7 @@ Part Number: HA-522</description>
 <wire x1="345.44" y1="248.92" x2="353.06" y2="248.92" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="DI" class="0">
-<segment>
-<pinref part="LED41" gate="G$1" pin="DI"/>
-<wire x1="58.42" y1="248.92" x2="55.88" y2="248.92" width="0.1524" layer="91"/>
-<label x="55.88" y="248.92" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="J2" gate="J1" pin="3"/>
-<wire x1="17.78" y1="261.62" x2="22.86" y2="261.62" width="0.1524" layer="91"/>
-<label x="22.86" y="261.62" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="DO" class="0">
-<segment>
-<pinref part="J2" gate="J1" pin="1"/>
-<wire x1="17.78" y1="256.54" x2="22.86" y2="256.54" width="0.1524" layer="91"/>
-<label x="22.86" y="256.54" size="1.27" layer="95" xref="yes"/>
-</segment>
 <segment>
 <pinref part="LED80" gate="G$1" pin="DO"/>
 <wire x1="378.46" y1="73.66" x2="381" y2="73.66" width="0.1524" layer="91"/>
@@ -3714,6 +3674,13 @@ Part Number: HA-522</description>
 <wire x1="55.88" y1="114.3" x2="55.88" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="LED71" gate="G$1" pin="DI"/>
 <wire x1="55.88" y1="73.66" x2="58.42" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="DO_1" class="0">
+<segment>
+<pinref part="LED41" gate="G$1" pin="DI"/>
+<wire x1="58.42" y1="248.92" x2="55.88" y2="248.92" width="0.1524" layer="91"/>
+<label x="55.88" y="248.92" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>

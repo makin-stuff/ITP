@@ -1859,7 +1859,6 @@ Part Number: HA-522</description>
 <part name="GND49" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND50" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND51" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-LEDGER" device=""/>
 <part name="LED51" library="brain" deviceset="3.5X3.5_RGB_LED" device="3.5X3.5"/>
 <part name="LED52" library="brain" deviceset="3.5X3.5_RGB_LED" device="3.5X3.5"/>
 <part name="LED53" library="brain" deviceset="3.5X3.5_RGB_LED" device="3.5X3.5"/>
@@ -2870,14 +2869,6 @@ Part Number: HA-522</description>
 </instance>
 <instance part="GND51" gate="1" x="365.76" y="236.22" smashed="yes">
 <attribute name="VALUE" x="365.76" y="235.966" size="1.778" layer="96" font="vector" align="top-center"/>
-</instance>
-<instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes"/>
-<instance part="FRAME1" gate="G$2" x="330.2" y="0" smashed="yes">
-<attribute name="LAST_DATE_TIME" x="342.9" y="1.27" size="2.54" layer="94" font="vector"/>
-<attribute name="SHEET" x="416.56" y="1.27" size="2.54" layer="94" font="vector"/>
-<attribute name="DRAWING_NAME" x="345.694" y="17.78" size="2.7432" layer="94" font="vector"/>
-<attribute name="DESIGNER" x="353.314" y="11.176" size="2.7432" layer="94" font="vector"/>
-<attribute name="REV" x="419.1" y="6.604" size="2.7432" layer="94" font="vector"/>
 </instance>
 <instance part="LED51" gate="G$1" x="71.12" y="195.58" smashed="yes"/>
 <instance part="LED52" gate="G$1" x="104.14" y="195.58" smashed="yes"/>
