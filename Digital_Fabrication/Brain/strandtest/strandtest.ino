@@ -20,7 +20,7 @@
 #define LED_PIN    6
 
 // How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 20
+#define LED_COUNT 80
 
 // Declare our NeoPixel strip object:
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
@@ -46,7 +46,7 @@ void setup() {
 
   strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
   strip.show();            // Turn OFF all pixels ASAP
-  strip.setBrightness(50); // Set BRIGHTNESS to about 1/5 (max = 255)
+  strip.setBrightness(20); // Set BRIGHTNESS to about 1/5 (max = 255)
 }
 
 
@@ -59,12 +59,12 @@ void loop() {
   colorWipe(strip.Color(  0,   0, 255), 50); // Blue
 
   // Do a theater marquee effect in various colors...
-  theaterChase(strip.Color(127, 127, 127), 50); // White, half brightness
-  theaterChase(strip.Color(127,   0,   0), 50); // Red, half brightness
-  theaterChase(strip.Color(  0,   0, 127), 50); // Blue, half brightness
+  // theaterChase(strip.Color(127, 127, 127), 50); // White, half brightness
+  // theaterChase(strip.Color(127,   0,   0), 50); // Red, half brightness
+  // theaterChase(strip.Color(  0,   0, 127), 50); // Blue, half brightness
 
-  rainbow(10);             // Flowing rainbow cycle along the whole strip
-  theaterChaseRainbow(50); // Rainbow-enhanced theaterChase variant
+  // rainbow(10);             // Flowing rainbow cycle along the whole strip
+  // theaterChaseRainbow(50); // Rainbow-enhanced theaterChase variant
 }
 
 
@@ -76,10 +76,11 @@ void loop() {
 // strip.Color(red, green, blue) as shown in the loop() function above),
 // and a delay time (in milliseconds) between pixels.
 void colorWipe(uint32_t color, int wait) {
-  for(int i=0; i<strip.numPixels(); i++) { // For each pixel in strip...
+  for(int i=40; i<strip.numPixels(); i++) { // For each pixel in strip...
     strip.setPixelColor(i, color);         //  Set pixel's color (in RAM)
     strip.show();                          //  Update strip to match
     delay(wait);                           //  Pause for a moment
+    // strip.clear();
   }
 }
 
