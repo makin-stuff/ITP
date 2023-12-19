@@ -20,7 +20,7 @@
 #define LED_PIN    6
 
 // How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 80
+#define LED_COUNT 20
 
 // Declare our NeoPixel strip object:
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
@@ -37,6 +37,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 // setup() function -- runs once at startup --------------------------------
 
 void setup() {
+  Serial.begin(115200);
   // These lines are specifically to support the Adafruit Trinket 5V 16 MHz.
   // Any other board, you can remove this part (but no harm leaving it):
 #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
@@ -53,18 +54,19 @@ void setup() {
 // loop() function -- runs repeatedly as long as board is on ---------------
 
 void loop() {
+  Serial.println("Hello");
   // Fill along the length of the strip in various colors...
   colorWipe(strip.Color(255,   0,   0), 50); // Red
   colorWipe(strip.Color(  0, 255,   0), 50); // Green
   colorWipe(strip.Color(  0,   0, 255), 50); // Blue
 
-  // Do a theater marquee effect in various colors...
-  // theaterChase(strip.Color(127, 127, 127), 50); // White, half brightness
-  // theaterChase(strip.Color(127,   0,   0), 50); // Red, half brightness
-  // theaterChase(strip.Color(  0,   0, 127), 50); // Blue, half brightness
+  //Do a theater marquee effect in various colors...
+  theaterChase(strip.Color(127, 127, 127), 50); // White, half brightness
+  theaterChase(strip.Color(127,   0,   0), 50); // Red, half brightness
+  theaterChase(strip.Color(  0,   0, 127), 50); // Blue, half brightness
 
-  // rainbow(10);             // Flowing rainbow cycle along the whole strip
-  // theaterChaseRainbow(50); // Rainbow-enhanced theaterChase variant
+  rainbow(10);             // Flowing rainbow cycle along the whole strip
+  theaterChaseRainbow(50); // Rainbow-enhanced theaterChase variant
 }
 
 
@@ -80,7 +82,7 @@ void colorWipe(uint32_t color, int wait) {
     strip.setPixelColor(i, color);         //  Set pixel's color (in RAM)
     strip.show();                          //  Update strip to match
     delay(wait);                           //  Pause for a moment
-    // strip.clear();
+    strip.clear();
   }
 }
 
