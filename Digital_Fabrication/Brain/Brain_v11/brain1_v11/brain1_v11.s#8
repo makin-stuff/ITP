@@ -2145,6 +2145,7 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 </polygon>
 <text x="-2.54" y="-3.81" size="0.635" layer="27" font="vector">&gt;Value</text>
 <text x="-2.54" y="2.54" size="0.635" layer="25" font="vector">&gt;Name</text>
+<circle x="1.651" y="-2.54" radius="0.127" width="0.3048" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -2250,7 +2251,7 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <part name="GND8" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND10" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="J1" library="SparkFun-Connectors" deviceset="CONN_04" device="PTH"/>
+<part name="J1" library="SparkFun-Connectors" deviceset="CONN_04" device="SMD4"/>
 <part name="SUPPLY3" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 <part name="GND11" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="FRAME2" library="SparkFun-Aesthetics" deviceset="FRAME-LEDGER" device=""/>

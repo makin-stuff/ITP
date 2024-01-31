@@ -1977,8 +1977,6 @@ Part Number: HA-522</description>
 <part name="J7" library="brain" deviceset="ELECTRO_MECH_PAD" device=""/>
 <part name="J8" library="brain" deviceset="ELECTRO_MECH_PAD" device=""/>
 <part name="J9" library="brain" deviceset="ELECTRO_MECH_PAD" device=""/>
-<part name="GND85" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="SUPPLY12" library="SparkFun-PowerSymbols" deviceset="5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1987,6 +1985,7 @@ Part Number: HA-522</description>
 <text x="421.64" y="7.62" size="2.54" layer="94" font="vector">v11</text>
 <text x="10.16" y="269.24" size="2.54" layer="97" font="vector">Qwiic Connectors</text>
 <text x="10.16" y="198.12" size="2.54" layer="97" font="vector">Headers</text>
+<text x="10.16" y="129.54" size="2.54" layer="97" font="vector">Electro-mechanical pads</text>
 </plain>
 <instances>
 <instance part="LED1" gate="G$1" x="71.12" y="251.46" smashed="yes"/>
@@ -2207,19 +2206,13 @@ Part Number: HA-522</description>
 <attribute name="VALUE" x="10.16" y="99.314" size="1.778" layer="96" font="vector"/>
 <attribute name="NAME" x="10.16" y="107.188" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="J8" gate="J1" x="12.7" y="68.58" smashed="yes">
-<attribute name="VALUE" x="10.16" y="63.754" size="1.778" layer="96" font="vector"/>
-<attribute name="NAME" x="10.16" y="71.628" size="1.778" layer="95" font="vector"/>
+<instance part="J8" gate="J1" x="12.7" y="88.9" smashed="yes">
+<attribute name="VALUE" x="10.16" y="84.074" size="1.778" layer="96" font="vector"/>
+<attribute name="NAME" x="10.16" y="91.948" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="J9" gate="J1" x="12.7" y="53.34" smashed="yes">
-<attribute name="VALUE" x="10.16" y="48.514" size="1.778" layer="96" font="vector"/>
-<attribute name="NAME" x="10.16" y="56.388" size="1.778" layer="95" font="vector"/>
-</instance>
-<instance part="GND85" gate="1" x="22.86" y="93.98" smashed="yes">
-<attribute name="VALUE" x="22.86" y="93.726" size="1.778" layer="96" font="vector" align="top-center"/>
-</instance>
-<instance part="SUPPLY12" gate="G$1" x="22.86" y="73.66" smashed="yes">
-<attribute name="VALUE" x="22.86" y="76.454" size="1.778" layer="96" font="vector" align="bottom-center"/>
+<instance part="J9" gate="J1" x="12.7" y="73.66" smashed="yes">
+<attribute name="VALUE" x="10.16" y="68.834" size="1.778" layer="96" font="vector"/>
+<attribute name="NAME" x="10.16" y="76.708" size="1.778" layer="95" font="vector"/>
 </instance>
 </instances>
 <busses>
@@ -2472,16 +2465,6 @@ Part Number: HA-522</description>
 <pinref part="GND84" gate="1" pin="GND"/>
 <wire x1="25.4" y1="177.8" x2="25.4" y2="175.26" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="J6" gate="J1" pin="1"/>
-<wire x1="20.32" y1="116.84" x2="22.86" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="116.84" x2="22.86" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="J7" gate="J1" pin="1"/>
-<wire x1="22.86" y1="104.14" x2="22.86" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="104.14" x2="22.86" y2="104.14" width="0.1524" layer="91"/>
-<junction x="22.86" y="104.14"/>
-<pinref part="GND85" gate="1" pin="GND"/>
-</segment>
 </net>
 <net name="5V" class="0">
 <segment>
@@ -2669,16 +2652,6 @@ Part Number: HA-522</description>
 <wire x1="22.86" y1="180.34" x2="25.4" y2="180.34" width="0.1524" layer="91"/>
 <pinref part="SUPPLY11" gate="G$1" pin="5V"/>
 <wire x1="25.4" y1="180.34" x2="25.4" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="J9" gate="J1" pin="1"/>
-<wire x1="20.32" y1="53.34" x2="22.86" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="53.34" x2="22.86" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="J8" gate="J1" pin="1"/>
-<wire x1="22.86" y1="68.58" x2="22.86" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="68.58" x2="22.86" y2="68.58" width="0.1524" layer="91"/>
-<junction x="22.86" y="68.58"/>
-<pinref part="SUPPLY12" gate="G$1" pin="5V"/>
 </segment>
 </net>
 <net name="N$5" class="0">

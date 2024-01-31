@@ -526,9 +526,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-1.397" y="-2.159" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="-1.651" y="-3.302" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
-<package name="1X01_SOLDER_PADS">
-<smd name="1" x="0" y="0" dx="3" dy="0.9" layer="1" cream="no"/>
-</package>
 <package name="1X04_NO_SILK">
 <description>&lt;h3&gt;Plated Through Hole - 4 Pin No Silk Outline&lt;/h3&gt;
 &lt;p&gt;Specifications:
@@ -1112,8 +1109,6 @@ design rules under a new name.</description>
 <attribute name="DESIGNER" value="" x="156.21" y="-40.64" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="REV" value="" x="156.21" y="-40.64" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="J2" library="SparkFun-Connectors" package="1X01_SOLDER_PADS" value="" x="76.5302" y="10.798759375" smashed="yes" rot="R90"/>
-<element name="J3" library="SparkFun-Connectors" package="1X01_SOLDER_PADS" value="" x="85.3948" y="102.238759375" smashed="yes" rot="MR90"/>
 <element name="J4" library="SparkFun-Connectors" package="JST04_1MM_RA" value="" x="142.24" y="17.78" smashed="yes" rot="MR0">
 <attribute name="COLOR" value="BLACK" x="142.24" y="17.78" size="1.778" layer="28" font="vector" ratio="15" rot="MR0" display="off"/>
 <attribute name="NAME" x="143.637" y="15.621" size="0.6096" layer="26" font="vector" ratio="20" rot="MR0"/>
@@ -1127,7 +1122,7 @@ design rules under a new name.</description>
 <element name="J6" library="brain" package="5X3_SOLDER_PAD" value="ELECTRO_MECH_PAD" x="89.027" y="51.438759375" smashed="yes" rot="R90"/>
 <element name="J7" library="brain" package="5X3_SOLDER_PAD" value="ELECTRO_MECH_PAD" x="89.027" y="102.238759375" smashed="yes" rot="R90"/>
 <element name="J8" library="brain" package="5X3_SOLDER_PAD" value="ELECTRO_MECH_PAD" x="84.3788" y="51.438759375" smashed="yes" rot="MR270"/>
-<element name="J9" library="brain" package="5X3_SOLDER_PAD" value="ELECTRO_MECH_PAD" x="-97.79" y="-55.88" smashed="yes"/>
+<element name="J9" library="brain" package="5X3_SOLDER_PAD" value="ELECTRO_MECH_PAD" x="84.3788" y="102.238759375" smashed="yes" rot="MR90"/>
 </elements>
 <signals>
 <signal name="N$1">
@@ -1369,21 +1364,15 @@ design rules under a new name.</description>
 <wire x1="66.9" y1="80.845" x2="68.9388" y2="80.845" width="0.254" layer="1"/>
 <wire x1="68.9388" y1="80.845" x2="69.0372" y2="80.7466" width="0.254" layer="1"/>
 <via x="69.0372" y="80.7466" extent="1-16" drill="0.6"/>
-<contactref element="J2" pad="1"/>
-<contactref element="J3" pad="1"/>
 <contactref element="J1" pad="1"/>
 <contactref element="J4" pad="1"/>
 <contactref element="J5" pad="1"/>
 <wire x1="140.74" y1="17.78" x2="140.74" y2="16.28" width="0.254" layer="1"/>
 <wire x1="140.74" y1="16.28" x2="140.716" y2="16.256" width="0.254" layer="1"/>
 <via x="140.716" y="16.256" extent="1-16" drill="0.6"/>
-<contactref element="J6" pad="P$1"/>
 <contactref element="J7" pad="P$1"/>
-<via x="89.408" y="51.562" extent="1-16" drill="0.6"/>
 <via x="89.027" y="102.235" extent="1-16" drill="0.6"/>
 <wire x1="89.027" y1="102.235" x2="89.027" y2="102.238759375" width="0" layer="19" extent="1-1"/>
-<wire x1="89.027" y1="51.438759375" x2="89.408" y2="51.562" width="0" layer="19" extent="1-1"/>
-<wire x1="76.5302" y1="10.798759375" x2="80.85" y2="35.875" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5V">
 <contactref element="LED5" pad="4"/>
@@ -1606,8 +1595,12 @@ design rules under a new name.</description>
 <contactref element="J9" pad="P$1"/>
 <contactref element="J8" pad="P$1"/>
 <via x="84.328" y="51.308" extent="1-16" drill="0.6"/>
-<wire x1="18.125" y1="65.9" x2="-97.79" y2="-55.88" width="0" layer="19" extent="1-1"/>
+<via x="84.328" y="102.235" extent="1-16" drill="0.6"/>
+<contactref element="J6" pad="P$1"/>
+<via x="89.154" y="51.562" extent="1-16" drill="0.6"/>
+<wire x1="84.328" y1="102.235" x2="84.3788" y2="102.238759375" width="0" layer="19" extent="16-16"/>
 <wire x1="84.3788" y1="51.438759375" x2="84.328" y2="51.308" width="0" layer="19" extent="16-16"/>
+<wire x1="89.154" y1="51.562" x2="89.027" y2="51.438759375" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$5">
 <contactref element="LED6" pad="1"/>
