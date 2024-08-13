@@ -14,6 +14,7 @@
 #include "AudioSampleSnort.h"
 #include "AudioSampleSnot.h"
 #include "AudioSampleSwallow.h"
+#include "AudioSampleLaugh.h"
 
 // GUItool: begin automatically generated code
 AudioPlayMemory          sample1;        //xy=134,256
@@ -41,6 +42,7 @@ AudioConnection          patchCord10(mixer1, 0, mixer2, 1);
 AudioConnection          patchCord11(mixer2, 0, i2s1, 0);
 AudioConnection          patchCord12(mixer2, 0, i2s1, 1);
 AudioControlSGTL5000     sgtl5000_1;     //xy=745,485
+AudioPlayMemory         sample8;
 // GUItool: end automatically generated code
 
 int noteCount = 0;
@@ -55,9 +57,13 @@ int step5 = 32;
 int step6 = 31;
 int step7 = 30;
 
-int brainTrig = 26;
+int brainTrig = 26; // Red button
 int brainState = 0;
 int lastBrainState = 0;
+
+int laughTrig = 28; // Yellow button
+int laughState = 0;
+int lastLaughState = 0;
 
 void setup() {
   // Step indicator LEDs
@@ -70,8 +76,9 @@ void setup() {
   pinMode(step6, OUTPUT);
   pinMode(step7, OUTPUT);
 
-  // Brain trigger
+  // Buttons!
   pinMode(brainTrig, INPUT);
+  pinMode(laughTrig, INPUT);
 
   Serial.begin(115200);
   AudioMemory(200);
@@ -94,6 +101,15 @@ void loop() {
   // check if the tempo has changed
 //  tempo = map(analogRead(A13), 0, 1023, 200, 1500);
 
+//  // Check the laugh button
+//  laughState = digitalRead(laughTrig);
+//  if (laughState != lastLaughState) {
+//    if (laughState == HIGH) {
+//      sample8.play(AudioSampleLaugh);
+//    }
+//  }
+//  lastLaughState = laughState;
+    
   brainState = digitalRead(brainTrig);
 
   if (brainState != lastBrainState) {
@@ -167,10 +183,10 @@ void playSequence(int noteCount) {
       break;
   }
 
-  Serial.print("Sample number: ");
-  Serial.println(sampleNum);
-  Serial.print("Audio usage: ");
-  Serial.println(AudioMemoryUsage());
+//  Serial.print("Sample number: ");
+//  Serial.println(sampleNum);
+//  Serial.print("Audio usage: ");
+//  Serial.println(AudioMemoryUsage());
 
   // Now, pick the correct sample to play
   switch (sampleNum) {
