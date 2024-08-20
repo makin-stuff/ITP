@@ -11,4 +11,7 @@ If you are building up version 1.0 of these boards (green soldermask) there is a
 
 <table class="table table-hover table-striped table-bordered">
   <tr align="center">
-    <td><img src="
+    <td><img src="https://github.com/makin-stuff/ITP/blob/main/Digital_Fabrication/Brain/footprint.JPG"></td>
+    <td><img src="https://github.com/makin-stuff/ITP/blob/main/Digital_Fabrication/Brain/package.png"></td>
+  </tr>
+</table>
