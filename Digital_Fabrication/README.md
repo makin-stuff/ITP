@@ -8,7 +8,9 @@ The addressable LED footprint used in this design was made to be used with [thes
 
 The orientation of the LED matters for the communication between LEDs to work, so always double-check before soldering!
 
-If you are building up version 1.0 of these boards (with green soldermask) there is a white silkscreen triangle indicator for pin 1 on the LED footprint. Be sure to line this silkscreen up with the pin of the LED that also has a triangle cut out of it in the package. Happy soldering!
+If you are building up version 1.0 of these boards (with green soldermask) there is a white silkscreen triangle indicator for pin 1 on the LED footprint. Be sure to line this silkscreen up with the pin of the LED that also has a triangle cut out of it in the package.
+
+For a more in-depth guide to surface mount soldering with solderpaste and a stencil, feel free to check out this [blog post](https://www.priyankamakin.com/blog/itp-thesis-i-this-system-is-nervous). Happy soldering!
 
 <table class="table table-hover table-striped table-bordered">
   <tr align="center">
