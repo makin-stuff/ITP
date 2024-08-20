@@ -23,6 +23,6 @@ For a more in-depth guide to surface mount soldering with solderpaste and a sten
   </tr>
 </table>
 
-Note 08/19/24:
+# Note 08/19/24:
 
 As I'm writing this ReadMe I'm realizing that I misnumbered the pins in the EAGLE footprint for the NeoPixel. This is just a notation error and doesn't affect functionality. Will update EAGLE library files in future revisions.
